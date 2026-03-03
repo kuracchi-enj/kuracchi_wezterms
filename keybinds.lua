@@ -41,12 +41,12 @@ return {
     -- Paneを閉じる
     { key = "x", mods = "SUPER|SHIFT", action = act.CloseCurrentPane({ confirm = true }) },
     -- Pane選択
-    { key = "[", mods = "CTRL|SHIFT", action = act.PaneSelect },
+    { key = "p", mods = "SUPER|SHIFT", action = act.PaneSelect },
     -- 選択中のPaneのみ表示
     { key = "z", mods = "SUPER", action = act.TogglePaneZoomState },
 
     -- コピーモード
-    { key = "[", mods = "SUPER", action = act.ActivateCopyMode },
+    { key = "c", mods = "SUPER|SHIFT", action = act.ActivateCopyMode },
 
     -- フォントサイズ切替
     { key = "+", mods = "CTRL", action = act.IncreaseFontSize },
@@ -55,7 +55,6 @@ return {
 
     -- コマンドパレット
     { key = "p", mods = "SUPER", action = act.ActivateCommandPalette },
-    { key = "p", mods = "SHIFT|CTRL", action = act.ActivateCommandPalette },
     -- 設定再読み込み
     { key = "r", mods = "SUPER|SHIFT", action = act.ReloadConfiguration },
 
