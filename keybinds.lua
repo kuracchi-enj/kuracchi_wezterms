@@ -12,6 +12,7 @@ return {
     { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
 
     -- Tab操作
+    { key = "n", mods = "SUPER", action = act.SpawnWindow },
     { key = "t", mods = "SUPER", action = act.SpawnTab("CurrentPaneDomain") },
     { key = "w", mods = "SUPER", action = act.CloseCurrentTab({ confirm = true }) },
     { key = "q", mods = "SUPER", action = act.QuitApplication },
@@ -19,8 +20,9 @@ return {
     -- Tab移動
     { key = "LeftArrow", mods = "SUPER|ALT", action = act.ActivateTabRelative(-1) },
     { key = "RightArrow", mods = "SUPER|ALT", action = act.ActivateTabRelative(1) },
-    { key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
-    { key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
+    -- Tab並び替え
+    { key = "LeftArrow", mods = "SUPER|SHIFT", action = act.MoveTabRelative(-1) },
+    { key = "RightArrow", mods = "SUPER|SHIFT", action = act.MoveTabRelative(1) },
 
     -- タブ切替 Cmd + 数字
     { key = "1", mods = "SUPER", action = act.ActivateTab(0) },
