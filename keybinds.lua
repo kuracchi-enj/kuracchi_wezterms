@@ -47,6 +47,9 @@ return {
     -- 選択中のPaneのみ表示
     { key = "z", mods = "SUPER", action = act.TogglePaneZoomState },
 
+    -- 検索
+    { key = "f", mods = "SUPER", action = act.Search({ CaseInSensitiveString = "" }) },
+
     -- コピーモード
     { key = "c", mods = "SUPER|SHIFT", action = act.ActivateCopyMode },
 
