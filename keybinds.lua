@@ -8,7 +8,19 @@ return {
     { key = "Enter", mods = "ALT", action = act.SendString("\n") },
 
     -- コピー/貼り付け
-    { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
+    -- 選択中テキストがあればコピー、なければ Ctrl+C (SIGINT) を送信
+    {
+      key = "c",
+      mods = "SUPER",
+      action = wezterm.action_callback(function(window, pane)
+        local sel = window:get_selection_text_for_pane(pane)
+        if sel and sel ~= "" then
+          window:perform_action(act.CopyTo("Clipboard"), pane)
+        else
+          window:perform_action(act.SendKey({ key = "c", mods = "CTRL" }), pane)
+        end
+      end),
+    },
     { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
 
     -- Tab操作
